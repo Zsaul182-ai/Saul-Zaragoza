@@ -76,3 +76,35 @@ body.loaded .hero-content { opacity: 1; transform: translateY(0); }
 .modal-content-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 20px; }
 #modal-media img { max-width: 90%; max-height: 70vh; }
 .close { position: absolute; top: 20px; right: 40px; font-size: 60px; color: #fff; cursor: pointer; }
+/* AJUSTES PARA CELULARES */
+@media (max-width: 768px) {
+    .collage-container {
+        /* En el cel solo queremos 1 o 2 columnas máximo */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+        grid-auto-rows: 200px; /* Fotos más pequeñas para que no ocupen toda la pantalla */
+        gap: 8px;
+        padding: 0 3%;
+    }
+
+    .collage-item.wide {
+        grid-column: span 1; /* En el cel, las fotos anchas ya no deben ser tan anchas */
+    }
+
+    .collage-item.tall {
+        grid-row: span 2; /* Las verticales se mantienen verticales */
+    }
+
+    /* Ajuste del nombre principal en el teléfono */
+    .hero h1 {
+        font-size: 4rem; /* Reducimos el tamaño de SAUL ZARAGOZA para que no se corte */
+    }
+}@media (max-width: 768px) {
+    .collage-item img {
+        filter: grayscale(0%); /* En el cel es mejor que se vean a color siempre */
+    }
+    
+    .item-overlay {
+        background: rgba(0, 0, 0, 0.3); /* Un fondo sutil para que el texto se lea */
+        opacity: 1; /* Que el botón de VER OBRA sea visible */
+    }
+}
