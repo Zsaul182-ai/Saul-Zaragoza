@@ -21,6 +21,7 @@
             color: var(--text-color);
             font-family: var(--font-body);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Botón Volver */
@@ -43,37 +44,60 @@
 
         .back-link:hover { color: var(--accent-color); }
 
-        /* Contenedor */
+        /* Contenedor Principal */
         .cv-wrapper {
             max-width: 900px;
             margin: 120px auto;
             padding: 0 5%;
         }
 
-        /* Encabezado */
-        header {
+        /* NUEVO ENCABEZADO CON FOTO */
+        .cv-main-header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
             margin-bottom: 80px;
             border-left: 10px solid var(--accent-color);
             padding-left: 30px;
         }
 
-        h1 {
+        .cv-photo-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-color);
+            flex-shrink: 0;
+            background: #111;
+        }
+
+        .cv-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+
+        .cv-photo:hover { filter: grayscale(0%); }
+
+        .cv-title-box h1 {
             font-family: var(--font-impact);
-            font-size: clamp(4rem, 12vw, 8rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             line-height: 0.85;
             text-transform: uppercase;
         }
 
         .profession {
             font-family: var(--font-impact);
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #666;
             letter-spacing: 4px;
             margin-top: 10px;
             display: block;
         }
 
-        /* Secciones */
+        /* Cuadrícula de Contenido */
         .grid-layout {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -97,7 +121,6 @@
             font-weight: 300;
         }
 
-        /* Items de experiencia y educación */
         .item { margin-bottom: 35px; }
         .item h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
         .item .place { color: var(--accent-color); font-weight: 600; display: block; font-size: 0.9rem; margin-bottom: 10px; }
@@ -105,27 +128,32 @@
         .item ul li { margin-bottom: 5px; position: relative; padding-left: 15px; }
         .item ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-color); }
 
-        /* Habilidades */
-        .skills-list { list-style: none; }
         .skills-list li {
             padding: 10px 0;
             border-bottom: 1px solid #1a1a1a;
             color: #aaa;
+            list-style: none;
         }
 
-        /* Contacto */
         .contact-box {
             background: #0a0a0a;
             padding: 30px;
             border: 1px solid #1a1a1a;
-            margin-top: 40px;
         }
-        .contact-box p { font-size: 0.9rem; margin-bottom: 10px; color: #666; }
-        .contact-box a { color: #fff; text-decoration: none; display: block; font-weight: 600; }
+        .contact-box p { font-size: 0.8rem; color: #444; margin-top: 15px; }
+        .contact-box a { color: #fff; text-decoration: none; display: block; font-weight: 600; margin-top: 5px; }
 
+        /* RESPONSIVO PARA MÓVILES */
         @media (max-width: 768px) {
+            .cv-main-header {
+                flex-direction: column;
+                text-align: center;
+                padding-left: 0;
+                border-left: none;
+                gap: 20px;
+            }
             .grid-layout { grid-template-columns: 1fr; }
-            header { padding-left: 20px; }
+            .cv-photo-container { width: 150px; height: 150px; }
         }
     </style>
 </head>
@@ -136,9 +164,14 @@
     </nav>
 
     <div class="cv-wrapper">
-        <header>
-            <h1>Saul <br>Zaragoza</h1>
-            <span class="profession">Profesional en fotografía</span>
+        <header class="cv-main-header">
+            <div class="cv-photo-container">
+                <img src="assets/fotocv.jpeg" alt="Saul Zaragoza" class="cv-photo">
+            </div>
+            <div class="cv-title-box">
+                <h1>Saul <br>Zaragoza</h1>
+                <span class="profession">Profesional en fotografía</span>
+            </div>
         </header>
 
         <div class="grid-layout">
@@ -146,81 +179,61 @@
                 <section class="section">
                     <h2>Esta es mi historia</h2>
                     <p class="history-text">
-                        Creativo especializado en fotografía y video profesional, con experiencia en creación de contenido, edición y manejo de cámaras profesionales. Apasionado por transmitir ideas de forma audiovisual y generar proyectos innovadores en el ámbito digital y artístico.
+                        Creativo especializado en fotografía y video profesional, apasionado por transmitir ideas de forma audiovisual y generar proyectos innovadores en el ámbito digital y artístico.
                     </p>
                 </section>
 
                 <section class="section">
                     <h2>Experiencia Laboral</h2>
-                    
                     <div class="item">
                         <h3>Creador de Contenido</h3>
                         <span class="place">EUSICA</span>
                         <ul>
                             <li>Producción y edición de video para proyectos musicales.</li>
                             <li>Manejo de cámaras profesionales y dirección creativa.</li>
-                            <li>Generación de contenido visual para redes sociales.</li>
                         </ul>
                     </div>
-
                     <div class="item">
                         <h3>Creador de Contenido y Administrador</h3>
                         <span class="place">PAPELES CAZAR</span>
                         <ul>
-                            <li>Desarrollo de contenido audiovisual para campañas.</li>
-                            <li>Edición de fotografía y video.</li>
+                            <li>Desarrollo de contenido audiovisual y edición.</li>
                             <li>Gestión de redes sociales y estrategia visual.</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="section">
-                    <h2>Capacitación Académica</h2>
-                    
+                    <h2>Capacitación</h2>
                     <div class="item">
                         <h3>Profesional en Fotografía</h3>
                         <span class="place">ESCUELA ACTIVA DE FOTOGRAFÍA</span>
-                        <ul>
-                            <li>Graduado</li>
-                            <li>Participante en exposición estudiantil anual</li>
-                        </ul>
                     </div>
-
                     <div class="item">
                         <h3>Licenciatura en Cine y TV</h3>
                         <span class="place">UNIVERSIDAD DE LONDRES</span>
-                        <ul>
-                            <li>Curso de dirección</li>
-                            <li>Curso de edición de video</li>
-                            <li>Dirección de cámaras</li>
-                        </ul>
                     </div>
                 </section>
             </div>
 
             <div class="side-col">
                 <section class="section">
-                    <h2>Habilidades Técnicas</h2>
+                    <h2>Software</h2>
                     <ul class="skills-list">
-                        <li>Edición de video (Premiere, DaVinci Resolve)</li>
-                        <li>Fotografía y retoque (Lightroom, Photoshop)</li>
-                        <li>Manejo de cámaras profesionales</li>
-                        <li>Creatividad y comunicación visual</li>
-                        <li>Inglés intermedio</li>
+                        <li>Premiere & DaVinci Resolve</li>
+                        <li>Lightroom & Photoshop</li>
+                        <li>Manejo de Cámaras Pro</li>
+                        <li>Inglés Intermedio</li>
                     </ul>
                 </section>
 
                 <section class="section">
-                    <h2>Hablemos</h2>
+                    <h2>Contacto</h2>
                     <div class="contact-box">
                         <p>TELÉFONO</p>
                         <a href="tel:5611159643">(56) 11 15 96 43</a>
-                        
-                        <br>
                         <p>EMAIL</p>
                         <a href="mailto:Zsaul182@hotmail.com">Zsaul182@hotmail.com</a>
-                        
-                        <br>
                         <p>LINKEDIN</p>
                         <a href="https://www.linkedin.com/in/saul-zaragoza/">/saul-zaragoza</a>
                     </div>
@@ -228,6 +241,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
