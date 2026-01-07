@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archivo Visual | Saul Zaragoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .full-gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: 280px;
+            grid-auto-flow: dense;
+            gap: 10px;
+            padding: 0 5%;
+            margin-bottom: 100px;
+        }
+        .gallery-header { padding: 150px 5% 50px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SAUL ZARAGOZA</div>
+        <div class="links">
+            <a href="index.html">Inicio</a>
+            <a href="cv-saul.html">CV</a>
+        </div>
+    </nav>
+
+    <header class="gallery-header">
+        <h2 class="section-title">Archivo Completo</h2>
+        <p style="margin-left: 5%; color: #444; letter-spacing: 3px;">EXPLORACIÓN VISUAL SIN FILTROS</p>
+    </header>
+
+    <main id="dynamic-gallery" class="full-gallery-container"></main>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <div id="modal-media"></div> 
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

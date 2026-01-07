@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Saul Zaragoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #e21d1d;
+            --font-impact: 'Bebas Neue', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.6;
+        }
+
+        /* Botón Volver */
+        .back-nav {
+            padding: 30px 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 100;
+            background: linear-gradient(to bottom, black, transparent);
+        }
+
+        .back-link {
+            color: #888;
+            text-decoration: none;
+            font-family: var(--font-impact);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .back-link:hover { color: var(--accent-color); }
+
+        /* Contenedor */
+        .cv-wrapper {
+            max-width: 900px;
+            margin: 120px auto;
+            padding: 0 5%;
+        }
+
+        /* Encabezado */
+        header {
+            margin-bottom: 80px;
+            border-left: 10px solid var(--accent-color);
+            padding-left: 30px;
+        }
+
+        h1 {
+            font-family: var(--font-impact);
+            font-size: clamp(4rem, 12vw, 8rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+        }
+
+        .profession {
+            font-family: var(--font-impact);
+            font-size: 1.8rem;
+            color: #666;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        /* Secciones */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        h2 {
+            font-family: var(--font-impact);
+            font-size: 2.2rem;
+            color: var(--accent-color);
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section { margin-bottom: 60px; }
+
+        .history-text {
+            font-size: 1.1rem;
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* Items de experiencia y educación */
+        .item { margin-bottom: 35px; }
+        .item h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
+        .item .place { color: var(--accent-color); font-weight: 600; display: block; font-size: 0.9rem; margin-bottom: 10px; }
+        .item ul { list-style: none; color: #888; font-size: 0.95rem; }
+        .item ul li { margin-bottom: 5px; position: relative; padding-left: 15px; }
+        .item ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-color); }
+
+        /* Habilidades */
+        .skills-list { list-style: none; }
+        .skills-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #1a1a1a;
+            color: #aaa;
+        }
+
+        /* Contacto */
+        .contact-box {
+            background: #0a0a0a;
+            padding: 30px;
+            border: 1px solid #1a1a1a;
+            margin-top: 40px;
+        }
+        .contact-box p { font-size: 0.9rem; margin-bottom: 10px; color: #666; }
+        .contact-box a { color: #fff; text-decoration: none; display: block; font-weight: 600; }
+
+        @media (max-width: 768px) {
+            .grid-layout { grid-template-columns: 1fr; }
+            header { padding-left: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="back-nav">
+        <a href="index.html" class="back-link">← VOLVER AL PORTAFOLIO</a>
+    </nav>
+
+    <div class="cv-wrapper">
+        <header>
+            <h1>Saul <br>Zaragoza</h1>
+            <span class="profession">Profesional en fotografía</span>
+        </header>
+
+        <div class="grid-layout">
+            <div class="main-col">
+                <section class="section">
+                    <h2>Esta es mi historia</h2>
+                    <p class="history-text">
+                        Creativo especializado en fotografía y video profesional, con experiencia en creación de contenido, edición y manejo de cámaras profesionales. Apasionado por transmitir ideas de forma audiovisual y generar proyectos innovadores en el ámbito digital y artístico.
+                    </p>
+                </section>
+
+                <section class="section">
+                    <h2>Experiencia Laboral</h2>
+                    
+                    <div class="item">
+                        <h3>Creador de Contenido</h3>
+                        <span class="place">EUSICA</span>
+                        <ul>
+                            <li>Producción y edición de video para proyectos musicales.</li>
+                            <li>Manejo de cámaras profesionales y dirección creativa.</li>
+                            <li>Generación de contenido visual para redes sociales.</li>
+                        </ul>
+                    </div>
+
+                    <div class="item">
+                        <h3>Creador de Contenido y Administrador</h3>
+                        <span class="place">PAPELES CAZAR</span>
+                        <ul>
+                            <li>Desarrollo de contenido audiovisual para campañas.</li>
+                            <li>Edición de fotografía y video.</li>
+                            <li>Gestión de redes sociales y estrategia visual.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2>Capacitación Académica</h2>
+                    
+                    <div class="item">
+                        <h3>Profesional en Fotografía</h3>
+                        <span class="place">ESCUELA ACTIVA DE FOTOGRAFÍA</span>
+                        <ul>
+                            <li>Graduado</li>
+                            <li>Participante en exposición estudiantil anual</li>
+                        </ul>
+                    </div>
+
+                    <div class="item">
+                        <h3>Licenciatura en Cine y TV</h3>
+                        <span class="place">UNIVERSIDAD DE LONDRES</span>
+                        <ul>
+                            <li>Curso de dirección</li>
+                            <li>Curso de edición de video</li>
+                            <li>Dirección de cámaras</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div class="side-col">
+                <section class="section">
+                    <h2>Habilidades Técnicas</h2>
+                    <ul class="skills-list">
+                        <li>Edición de video (Premiere, DaVinci Resolve)</li>
+                        <li>Fotografía y retoque (Lightroom, Photoshop)</li>
+                        <li>Manejo de cámaras profesionales</li>
+                        <li>Creatividad y comunicación visual</li>
+                        <li>Inglés intermedio</li>
+                    </ul>
+                </section>
+
+                <section class="section">
+                    <h2>Hablemos</h2>
+                    <div class="contact-box">
+                        <p>TELÉFONO</p>
+                        <a href="tel:5611159643">(56) 11 15 96 43</a>
+                        
+                        <br>
+                        <p>EMAIL</p>
+                        <a href="mailto:Zsaul182@hotmail.com">Zsaul182@hotmail.com</a>
+                        
+                        <br>
+                        <p>LINKEDIN</p>
+                        <a href="https://www.linkedin.com/in/saul-zaragoza/">/saul-zaragoza</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

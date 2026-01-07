@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saul Zaragoza | Visual Artist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SAUL ZARAGOZA</div>
+        <div class="links">
+            <a href="#work">Portfolio</a>
+            <a href="#blog">Journal</a>
+            <a href="#cv-contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div id="hero-bg-container" class="hero-background"></div>
+        <div class="hero-content">
+            <h1>SAUL <span class="red-text">ZARAGOZA</span></h1>
+            <p>Photography • Video • Creative Direction</p>
+        </div>
+    </header>
+
+    <main id="work">
+        <h2 class="section-title">Selected Projects</h2>
+        <div class="collage-container">
+            <div class="collage-item tall" onclick="openModal('assets/food10.jpg', 'Food Styling', 'Composisciones llamativas.')">
+                <img src="assets/food10.jpg" alt="Food">
+            </div>
+            <div class="collage-item wide" onclick="openModal('assets/music5.jpg', 'Music Video', 'Dirección creativa para sesión en vivo.', false)">
+                <img src="assets/music5.jpg" alt="Music">
+            </div>
+            <div class="collage-item" onclick="openModal('assets/retrato6.jpg', 'Art Photo', 'Estudio de luces y sombras.')">
+                <img src="assets/retrato6.jpg" alt="Art">
+            </div>
+            <div class="collage-item" onclick="openModal('assets/food6.jpg', 'Food Art', 'Detalle y composición.')">
+                <img src="assets/food6.jpg" alt="Food Art">
+            </div>
+            <div class="collage-item" onclick="openModal('assets/music7.jpg', 'Live Music', 'Captura de energía en vivo.')">
+                <img src="assets/music7.jpg" alt="Music">
+            </div>
+            <div class="collage-item" onclick="openModal('assets/retrato2.jpg', 'Portrait', 'Mirada y profundidad.')">
+                <img src="assets/retrato2.jpg" alt="Portrait">
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px; margin-bottom: 80px;">
+            <a href="gallery.html" class="highlight-link" style="font-size: 1.5rem; padding: 15px 40px;">VER TODA LA GALERÍA →</a>
+        </div>
+    </main>
+
+    <section id="blog" class="blog-full-screen">
+        <div class="blog-hero-image" onclick="openModal('assets/foto-semana.jpg', 'El ruido de muchos', 'Fotografía tomada en el festival de 50 pesos a los increíbles, Mi mochila huele a semen.')">
+            <img src="assets/foto-semana.jpg" alt="Foto de la semana">
+            <div class="blog-overlay">
+                <div class="blog-badge">Foto de la semana</div>
+                <div class="blog-description-box">
+                    <span class="entry-date">junio, 2025</span>
+                    <h3>El ruido de muchos</h3>
+                    <p>Haz clic en la imagen para verla en detalle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cv-contact" class="cv-final-call">
+        <div class="cv-content-centered">
+            <a href="cv-saul.html" class="highlight-link">VER MI CV PROFESIONAL</a>
+            <div class="contact-footer-info">
+                <p>Zsaul182@hotmail.com</p>
+                <p>(56) 11 15 96 43</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-content-wrapper">
+            <div id="modal-media"></div> 
+            <div class="modal-info">
+                <h2 id="modal-title"></h2>
+                <p id="modal-desc"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
