@@ -1,7 +1,8 @@
 :root {
     --bg-color: #000000;
-    --text-color: #ffffff;
-    --accent-color: #e21d1d;
+    --text-color: #ffffff; 
+    --accent-color: #9e1b32; /* Carmesí Wong Kar-wai */
+    --sand-color: #d9c5b2;   /* Arena Editorial */
     --font-impact: 'Bebas Neue', sans-serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -9,16 +10,18 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { background: var(--bg-color); color: var(--text-color); font-family: var(--font-body); overflow-x: hidden; }
 
+/* Navegación */
 nav {
     display: flex; justify-content: space-between; padding: 25px 5%;
     position: fixed; width: 100%; top: 0; z-index: 1000;
     background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
     backdrop-filter: blur(8px);
 }
-.logo { font-family: var(--font-impact); font-size: 1.8rem; letter-spacing: 2px; }
+.logo { font-family: var(--font-impact); font-size: 1.8rem; letter-spacing: 2px; color: var(--text-color); }
 .links a { color: #888; text-decoration: none; font-family: var(--font-impact); margin-left: 25px; transition: 0.3s; }
-.links a:hover { color: white; }
+.links a:hover { color: var(--sand-color); }
 
+/* Hero Principal */
 .hero { height: 100vh; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; }
 .hero-background { position: absolute; width: 100%; height: 100%; z-index: 1; }
 .bg-slide {
@@ -27,84 +30,52 @@ nav {
     filter: grayscale(100%) brightness(0.2) blur(3px);
 }
 .bg-slide.active { opacity: 1; }
-
-.hero-content { 
-    position: relative; z-index: 2; text-align: center;
-    opacity: 0; transform: translateY(30px);
-    transition: all 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+.hero-content { position: relative; z-index: 2; text-align: center; opacity: 0; transform: translateY(30px); transition: 1.5s cubic-bezier(0.165, 0.84, 0.44, 1); }
 body.loaded .hero-content { opacity: 1; transform: translateY(0); }
-.red-text { color: var(--accent-color); }
 .hero h1 { font-family: var(--font-impact); font-size: clamp(4rem, 15vw, 10rem); line-height: 0.8; }
 .hero p { font-family: var(--font-impact); letter-spacing: 8px; color: #555; text-transform: uppercase; margin-top: 10px; }
 
+/* Títulos con Borde Carmesí */
 .section-title {
     font-family: var(--font-impact); font-size: clamp(3rem, 7vw, 5rem);
     margin: 80px 5% 40px; border-left: 15px solid var(--accent-color);
     padding-left: 20px; text-transform: uppercase;
 }
-.collage-container {
+
+/* Grillas Dinámicas */
+.collage-container, .project-grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-auto-rows: 280px; gap: 12px; padding: 0 5%;
 }
-.collage-item { position: relative; overflow: hidden; background: #111; cursor: pointer; transition: 0.5s; }
-.collage-item:hover { transform: scale(1.04); z-index: 5; }
-.collage-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
-.collage-item:hover img { filter: grayscale(0%); }
+.collage-item, .project-grid img { 
+    position: relative; overflow: hidden; background: #111; 
+    cursor: pointer; transition: 0.5s; border: 1px solid #222; 
+    width: 100%; height: 100%; object-fit: cover;
+}
 .collage-item.tall { grid-row: span 2; }
 .collage-item.wide { grid-column: span 2; }
+.collage-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.5s; }
+.collage-item:hover { transform: scale(1.02); border-color: var(--sand-color); }
+.collage-item:hover img, .project-grid img:hover { filter: grayscale(0%); border-color: var(--sand-color); }
 
-.blog-full-screen { height: 100vh; width: 100%; position: relative; margin-top: 80px; }
-.blog-hero-image { width: 100%; height: 100%; position: relative; cursor: pointer; }
-.blog-hero-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%) brightness(0.3); transition: 0.8s; }
-.blog-hero-image:hover img { filter: grayscale(0%) brightness(0.5); }
-.blog-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; padding: 60px; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
-.blog-badge { background: var(--accent-color); color: white; font-family: var(--font-impact); padding: 8px 15px; align-self: flex-start; }
-.blog-description-box { align-self: flex-end; text-align: right; max-width: 500px; }
-.blog-description-box h3 { font-family: var(--font-impact); font-size: 3.5rem; line-height: 0.9; }
-
-.cv-final-call { height: 60vh; display: flex; justify-content: center; align-items: center; }
-.cv-content-centered { text-align: center; }
+/* Botón Destacado */
 .highlight-link {
-    font-family: var(--font-impact); font-size: clamp(1.5rem, 3vw, 2.5rem);
-    color: white; text-decoration: none; border: 2px solid #333;
-    padding: 20px 50px; transition: 0.3s;
+    font-family: var(--font-impact); color: var(--sand-color); 
+    text-decoration: none; border: 1px solid var(--sand-color); 
+    padding: 15px 40px; transition: 0.3s; display: inline-block; letter-spacing: 2px;
 }
-.highlight-link:hover { background: white; color: black; border-color: white; }
+.highlight-link:hover { background-color: var(--accent-color); color: #fff; border-color: var(--accent-color); }
 
-.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.97); }
+/* Banner de Exposición (Fondo dinámico) */
+#momento-banner {
+    padding: 120px 5%; text-align: center; margin: 60px 0;
+    border-top: 1px solid var(--accent-color); border-bottom: 1px solid var(--accent-color);
+    background-size: cover; background-position: center; position: relative;
+}
+
+/* Modal Estilo Wong Kar-wai */
+.modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); }
 .modal-content-wrapper { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 20px; }
-#modal-media img { max-width: 90%; max-height: 70vh; }
-.close { position: absolute; top: 20px; right: 40px; font-size: 60px; color: #fff; cursor: pointer; }
-/* AJUSTES PARA CELULARES */
-@media (max-width: 768px) {
-    .collage-container {
-        /* En el cel solo queremos 1 o 2 columnas máximo */
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
-        grid-auto-rows: 200px; /* Fotos más pequeñas para que no ocupen toda la pantalla */
-        gap: 8px;
-        padding: 0 3%;
-    }
-
-    .collage-item.wide {
-        grid-column: span 1; /* En el cel, las fotos anchas ya no deben ser tan anchas */
-    }
-
-    .collage-item.tall {
-        grid-row: span 2; /* Las verticales se mantienen verticales */
-    }
-
-    /* Ajuste del nombre principal en el teléfono */
-    .hero h1 {
-        font-size: 4rem; /* Reducimos el tamaño de SAUL ZARAGOZA para que no se corte */
-    }
-}@media (max-width: 768px) {
-    .collage-item img {
-        filter: grayscale(0%); /* En el cel es mejor que se vean a color siempre */
-    }
-    
-    .item-overlay {
-        background: rgba(0, 0, 0, 0.3); /* Un fondo sutil para que el texto se lea */
-        opacity: 1; /* Que el botón de VER OBRA sea visible */
-    }
-}
+#modal-media img { max-height: 75vh; border: 1px solid var(--accent-color); box-shadow: 0 0 30px rgba(158, 27, 50, 0.2); }
+.modal-info h2 { font-family: var(--font-impact); font-size: 2.5rem; color: var(--sand-color); margin-top: 15px; }
+.close { position: absolute; right: 30px; top: 20px; font-size: 40px; color: #fff; cursor: pointer; }

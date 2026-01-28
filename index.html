@@ -7,84 +7,92 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
+<body class="loading"> 
     <nav>
         <div class="logo">SAUL ZARAGOZA</div>
         <div class="links">
             <a href="#work">Portfolio</a>
-            <a href="#blog">Journal</a>
-            <a href="#cv-contact">Contact</a>
+            <a href="gallery.html">Archivo</a>
+            <a href="cv-saul.html">CV</a>
         </div>
     </nav>
 
     <header class="hero">
         <div id="hero-bg-container" class="hero-background"></div>
         <div class="hero-content">
-            <h1>SAUL <span class="red-text">ZARAGOZA</span></h1>
+            <h1>SAUL ZARAGOZA</h1>
             <p>Photography • Video • Creative Direction</p>
         </div>
     </header>
 
     <main id="work">
+    <section style="width: 100%; max-width: 1200px; margin: 0 auto 60px auto; padding: 40px 5% 0 5%; box-sizing: border-box;">
+        <div style="text-align: center; margin-bottom: 20px;">
+            <p style="letter-spacing: 3px; color: #888; font-size: 0.8rem; text-transform: uppercase; display: inline-block;">
+                MUESTRA DE TRABAJO • 2026
+            </p>
+        </div>
+        
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border: 1px solid #333; background: #000;">
+            <iframe 
+                src="https://www.youtube.com/watch?v=C-_o9x4ltBc" 
+                title="Saul Zaragoza Reel"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
         <h2 class="section-title">Selected Projects</h2>
-        <div class="collage-container">
-            <div class="collage-item tall" onclick="openModal('assets/food10.jpg', 'Food Styling', 'Composisciones llamativas.')">
-                <img src="assets/food10.jpg" alt="Food">
-            </div>
-            <div class="collage-item wide" onclick="openModal('assets/music5.jpg', 'Music Video', 'Dirección creativa para sesión en vivo.', false)">
-                <img src="assets/music5.jpg" alt="Music">
-            </div>
-            <div class="collage-item" onclick="openModal('assets/retrato6.jpg', 'Art Photo', 'Estudio de luces y sombras.')">
-                <img src="assets/retrato6.jpg" alt="Art">
-            </div>
-            <div class="collage-item" onclick="openModal('assets/food6.jpg', 'Food Art', 'Detalle y composición.')">
-                <img src="assets/food6.jpg" alt="Food Art">
-            </div>
-            <div class="collage-item" onclick="openModal('assets/music7.jpg', 'Live Music', 'Captura de energía en vivo.')">
-                <img src="assets/music7.jpg" alt="Music">
-            </div>
-            <div class="collage-item" onclick="openModal('assets/retrato2.jpg', 'Portrait', 'Mirada y profundidad.')">
-                <img src="assets/retrato2.jpg" alt="Portrait">
-            </div>
+        
+        <div id="dynamic-gallery" class="collage-container"></div>
+
+        <div style="text-align: center; padding: 40px 0;">
+            <a href="gallery.html" class="highlight-link">VER ARCHIVO COMPLETO</a>
         </div>
 
-        <div style="text-align: center; margin-top: 50px; margin-bottom: 80px;">
-            <a href="gallery.html" class="highlight-link" style="font-size: 1.5rem; padding: 15px 40px;">VER TODA LA GALERÍA →</a>
-        </div>
-    </main>
-
-    <section id="blog" class="blog-full-screen">
-        <div class="blog-hero-image" onclick="openModal('assets/foto-semana.jpg', 'El ruido de muchos', 'Fotografía tomada en el festival de 50 pesos a los increíbles, Mi mochila huele a semen.')">
-            <img src="assets/foto-semana.jpg" alt="Foto de la semana">
-            <div class="blog-overlay">
-                <div class="blog-badge">Foto de la semana</div>
-                <div class="blog-description-box">
-                    <span class="entry-date">junio, 2025</span>
-                    <h3>El ruido de muchos</h3>
-                    <p>Haz clic en la imagen para verla en detalle.</p>
+        <section style="padding: 60px 5%; background: #000; display: flex; flex-direction: column; align-items: center;">
+            <h2 class="section-title" style="width: 100%; max-width: 800px;">Foto de la semana</h2>
+            
+            <div style="position: relative; width: 100%; max-width: 800px; margin: 0 auto; line-height: 0; border: 1px solid #1a1a1a;">
+                <div id="foto-semana-container" style="width: 100%; background: #050505;">
+                    </div>
+                
+                <div id="foto-semana-info" style="position: absolute; bottom: 15px; right: 15px; text-align: right; background: rgba(0,0,0,0.7); padding: 12px; backdrop-filter: blur(8px); border-right: 3px solid var(--accent-color); max-width: 250px;">
+                    <h3 id="semana-titulo" style="font-family: var(--font-impact); color: var(--sand-color); font-size: 1.2rem; margin: 0; text-transform: uppercase; letter-spacing: 1px;"></h3>
+                    <p id="semana-desc" style="font-family: var(--font-body); color: #aaa; font-size: 0.75rem; margin: 5px 0 0 0; line-height: 1.3;"></p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="cv-contact" class="cv-final-call">
-        <div class="cv-content-centered">
-            <a href="cv-saul.html" class="highlight-link">VER MI CV PROFESIONAL</a>
-            <div class="contact-footer-info">
-                <p>Zsaul182@hotmail.com</p>
-                <p>(56) 11 15 96 43</p>
-            </div>
-        </div>
-    </section>
+        <section id="momento-banner">
+            <p style="letter-spacing: 4px; color: var(--sand-color); font-size: 0.7rem; text-transform: uppercase; margin-bottom: 10px;">
+                Muestra Especial
+            </p>
+            <a href="proyecto-especifico.html" style="text-decoration: none; color: inherit;">
+                <h2 id="momento-titulo-texto" style="font-family: var(--font-impact); font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 25px; cursor: pointer; transition: 0.3s;">
+                    CARGANDO...
+                </h2>
+            </a>
+            <a href="proyecto-especifico.html" class="highlight-link">EXPLORAR SERIE COMPLETA</a>
+        </section>
+
+        <section id="cv-contact" style="padding: 100px 5%; text-align: center; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <p style="letter-spacing: 2px; color: #555; font-size: 0.8rem; margin-bottom: 15px;">¿TIENES UN PROYECTO?</p>
+            <p style="font-family: var(--font-impact); font-size: 2rem; color: var(--sand-color); margin-bottom: 30px;">Zsaul182@hotmail.com</p>
+            
+            <a href="cv-saul.html" class="highlight-link" style="font-size: 0.9rem; padding: 12px 30px; display: inline-block;">REVISAR MI CV</a>
+        </section>
+    </main>
 
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <div class="modal-content-wrapper">
-            <div id="modal-media"></div> 
+            <div id="modal-media"></div>
             <div class="modal-info">
                 <h2 id="modal-title"></h2>
-                <p id="modal-desc"></p>
+                <div id="modal-desc"></div>
             </div>
         </div>
     </div>

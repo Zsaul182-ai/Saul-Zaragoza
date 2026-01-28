@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velbet | Saul Zaragoza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Ajuste para que la foto de portada tenga el impacto original y se vea más */
+        .project-hero {
+            height: 85vh; /* Altura mayor para que luzca la foto */
+            display: flex;
+            align-items: flex-end;
+            padding: 5%;
+            /* El degradado ahora es más sutil para mostrar más imagen */
+            background: linear-gradient(to top, #000 5%, transparent 60%), url('assets/Velbet3.jpg');
+            background-size: cover;
+            background-position: center 30%;
+        }
+
+        .project-header-text h1 {
+            font-family: var(--font-impact);
+            font-size: clamp(3rem, 10vw, 8rem);
+            color: var(--text-color); /* Volvemos al blanco original */
+            line-height: 0.9;
+        }
+
+        /* Sección de Información: Visión y Cliente */
+        .project-info-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 80px 5%;
+            background: #000;
+        }
+
+        .info-block h2 {
+            font-family: var(--font-impact);
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .info-block p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+
+        .details-block {
+            border-left: 2px solid var(--accent-color);
+            padding-left: 30px;
+        }
+
+        .details-block h4 {
+            font-family: var(--font-impact);
+            color: var(--sand-color);
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        
+        /* Aseguramos que el grid use las mismas clases del index */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 400px;
+            gap: 12px;
+            padding: 20px 5% 80px;
+        }
+        
+        .project-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            border: 1px solid #222;
+            transition: 0.5s;
+        }
+        
+        .project-grid img:hover {
+            border-color: var(--sand-color);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SAUL ZARAGOZA</div>
+        <div class="links">
+            <a href="index.html" style="color: var(--sand-color); text-decoration: none; font-family: var(--font-impact);">VOLVER AL INICIO</a>
+        </div>
+    </nav>
+
+    <header class="project-hero">
+        <div class="project-header-text">
+            <<div class="project-header-text">
+    <h1 id="project-main-title">CARGANDO...</h1> 
+    <p style="color: var(--accent-color); font-family: var(--font-impact); letter-spacing: 5px; margin-top: 10px;">
+        DIRECCIÓN CREATIVA & FOTOGRAFÍA
+    </p>
+</div>
+    </header>
+
+    <section class="project-info-container">
+        <div class="info-block">
+            <h2>VISIÓN</h2>
+            <p>"Mirar no es solo ver; es sentir el grano de la luz. Nuestra visión es convertir cada reflejo en una historia, fusionando la estética análoga de los años 90 con la vanguardia del diseño, para aquellos que ven la vida en 35mm."</p>
+        </div>
+        <div class="info-block details-block">
+            <h4>CLIENTE</h4>
+            <p>Velbet Sun Glasses / Creative Direction</p>
+            <h4>AÑO</h4>
+            <p>2026</p>
+        </div>
+    </section>
+
+    <main id="project-dynamic-grid" class="project-grid">
+        </main>
+
+    <footer style="padding: 100px 5%; text-align: center;">
+        <a href="mailto:Zsaul182@hotmail.com" class="highlight-link">¿TE GUSTA ESTE ESTILO? CONTÁCTAME</a>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()" style="position: absolute; right: 30px; top: 20px; font-size: 40px; cursor: pointer; color: white;">&times;</span>
+        <div class="modal-content-wrapper">
+            <div id="modal-media"></div> 
+            <div class="modal-info">
+                <h2 id="modal-title" style="color: var(--sand-color); font-family: var(--font-impact);"></h2>
+                <p id="modal-desc" style="color: #ccc; font-family: var(--font-body);"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

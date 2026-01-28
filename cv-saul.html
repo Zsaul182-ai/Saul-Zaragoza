@@ -5,162 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV | Saul Zaragoza</title>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"> 
     <style>
-        :root {
-            --bg-color: #000000;
-            --text-color: #ffffff;
-            --accent-color: #e21d1d;
-            --font-impact: 'Bebas Neue', sans-serif;
-            --font-body: 'Inter', sans-serif;
+        /* Ajustes para asegurar legibilidad sobre el fondo dinámico */
+        .cv-wrapper { 
+            position: relative; 
+            z-index: 10; 
+            max-width: 900px; 
+            margin: 120px auto; 
+            padding: 40px; 
+            background: rgba(0,0,0,0.85); 
+            backdrop-filter: blur(10px); 
+            border-radius: 10px; 
+        }
+        
+        /* Estructura original del diseño */
+        .grid-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; }
+        
+        .cv-main-header { 
+            display: flex; 
+            align-items: center; 
+            gap: 40px; 
+            margin-bottom: 50px; 
+            border-left: 10px solid var(--accent-color); 
+            padding-left: 30px; 
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            overflow-x: hidden;
+        /* Mejora 1: Aspecto de la fotografía corregido */
+        .cv-photo-container { 
+            width: 180px; 
+            height: 180px; 
+            border-radius: 50%; 
+            overflow: hidden; 
+            border: 3px solid var(--accent-color); 
+            flex-shrink: 0; 
+        }
+        .cv-photo { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
         }
 
-        /* Botón Volver */
-        .back-nav {
-            padding: 30px 5%;
-            position: fixed;
-            top: 0; width: 100%;
-            z-index: 100;
-            background: linear-gradient(to bottom, black, transparent);
-        }
+        h2 { font-family: var(--font-impact); color: var(--accent-color); margin-bottom: 20px; text-transform: uppercase; }
+        .item { margin-bottom: 30px; }
+        .place { color: var(--accent-color); font-weight: 600; font-size: 0.9rem; }
+        .skills-list { list-style: none; color: #888; }
+        .skills-list li { border-bottom: 1px solid #222; padding: 8px 0; }
+        
+        .contact-box a { color: var(--text-color); text-decoration: none; display: block; margin-bottom: 10px; }
 
-        .back-link {
-            color: #888;
-            text-decoration: none;
-            font-family: var(--font-impact);
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            transition: 0.3s;
-        }
-
-        .back-link:hover { color: var(--accent-color); }
-
-        /* Contenedor Principal */
-        .cv-wrapper {
-            max-width: 900px;
-            margin: 120px auto;
-            padding: 0 5%;
-        }
-
-        /* NUEVO ENCABEZADO CON FOTO */
-        .cv-main-header {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 80px;
-            border-left: 10px solid var(--accent-color);
-            padding-left: 30px;
-        }
-
-        .cv-photo-container {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 3px solid var(--accent-color);
-            flex-shrink: 0;
-            background: #111;
-        }
-
-        .cv-photo {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: 0.5s;
-        }
-
-        .cv-photo:hover { filter: grayscale(0%); }
-
-        .cv-title-box h1 {
-            font-family: var(--font-impact);
-            font-size: clamp(3rem, 10vw, 6rem);
-            line-height: 0.85;
-            text-transform: uppercase;
-        }
-
-        .profession {
-            font-family: var(--font-impact);
-            font-size: 1.5rem;
-            color: #666;
-            letter-spacing: 4px;
-            margin-top: 10px;
-            display: block;
-        }
-
-        /* Cuadrícula de Contenido */
-        .grid-layout {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-        }
-
-        h2 {
-            font-family: var(--font-impact);
-            font-size: 2.2rem;
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .section { margin-bottom: 60px; }
-
-        .history-text {
-            font-size: 1.1rem;
-            color: #ccc;
-            font-weight: 300;
-        }
-
-        .item { margin-bottom: 35px; }
-        .item h3 { font-size: 1.3rem; margin-bottom: 5px; color: #fff; }
-        .item .place { color: var(--accent-color); font-weight: 600; display: block; font-size: 0.9rem; margin-bottom: 10px; }
-        .item ul { list-style: none; color: #888; font-size: 0.95rem; }
-        .item ul li { margin-bottom: 5px; position: relative; padding-left: 15px; }
-        .item ul li::before { content: "—"; position: absolute; left: 0; color: var(--accent-color); }
-
-        .skills-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #1a1a1a;
-            color: #aaa;
-            list-style: none;
-        }
-
-        .contact-box {
-            background: #0a0a0a;
-            padding: 30px;
-            border: 1px solid #1a1a1a;
-        }
-        .contact-box p { font-size: 0.8rem; color: #444; margin-top: 15px; }
-        .contact-box a { color: #fff; text-decoration: none; display: block; font-weight: 600; margin-top: 5px; }
-
-        /* RESPONSIVO PARA MÓVILES */
-        @media (max-width: 768px) {
-            .cv-main-header {
-                flex-direction: column;
-                text-align: center;
-                padding-left: 0;
-                border-left: none;
-                gap: 20px;
-            }
-            .grid-layout { grid-template-columns: 1fr; }
-            .cv-photo-container { width: 150px; height: 150px; }
+        @media (max-width: 768px) { 
+            .grid-layout { grid-template-columns: 1fr; } 
+            .cv-main-header { flex-direction: column; text-align: center; padding-left: 0; border-left: none; border-bottom: 5px solid var(--accent-color); padding-bottom: 20px; } 
         }
     </style>
 </head>
 <body>
 
-    <nav class="back-nav">
-        <a href="index.html" class="back-link">← VOLVER AL PORTAFOLIO</a>
+    <div id="hero-bg-container" class="hero-background" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: 1; opacity: 0.4;"></div>
+
+    <nav style="position: fixed; top: 0; width: 100%; z-index: 100; display: flex; justify-content: flex-start; padding: 25px 5%;">
+        <a href="index.html" class="highlight-link" style="font-size: 0.9rem; padding: 10px 25px;">← VOLVER AL INICIO</a>
     </nav>
 
     <div class="cv-wrapper">
@@ -169,42 +74,32 @@
                 <img src="assets/fotocv.jpeg" alt="Saul Zaragoza" class="cv-photo">
             </div>
             <div class="cv-title-box">
-                <h1>Saul <br>Zaragoza</h1>
-                <span class="profession">Profesional en fotografía</span>
+                <h1 style="font-family: var(--font-impact); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1;">SAUL ZARAGOZA</h1>
+                <span style="font-family: var(--font-impact); color: #666; letter-spacing: 3px; text-transform: uppercase;">Profesional en fotografía</span>
             </div>
         </header>
 
         <div class="grid-layout">
             <div class="main-col">
                 <section class="section">
-                    <h2>Esta es mi historia</h2>
-                    <p class="history-text">
-                        Creativo especializado en fotografía y video profesional, apasionado por transmitir ideas de forma audiovisual y generar proyectos innovadores en el ámbito digital y artístico.
-                    </p>
+                    <h2>Historia</h2>
+                    <p>Creativo especializado en fotografía y video profesional, apasionado por transmitir ideas de forma audiovisual y narrativa técnica.</p>
                 </section>
-
-                <section class="section">
-                    <h2>Experiencia Laboral</h2>
+                
+                <section class="section" style="margin-top: 40px;">
+                    <h2>Experiencia</h2>
                     <div class="item">
                         <h3>Creador de Contenido</h3>
                         <span class="place">EUSICA</span>
-                        <ul>
-                            <li>Producción y edición de video para proyectos musicales.</li>
-                            <li>Manejo de cámaras profesionales y dirección creativa.</li>
-                        </ul>
                     </div>
                     <div class="item">
-                        <h3>Creador de Contenido y Administrador</h3>
+                        <h3>Creador de Contenido</h3>
                         <span class="place">PAPELES CAZAR</span>
-                        <ul>
-                            <li>Desarrollo de contenido audiovisual y edición.</li>
-                            <li>Gestión de redes sociales y estrategia visual.</li>
-                        </ul>
                     </div>
                 </section>
 
                 <section class="section">
-                    <h2>Capacitación</h2>
+                    <h2>Formación</h2>
                     <div class="item">
                         <h3>Profesional en Fotografía</h3>
                         <span class="place">ESCUELA ACTIVA DE FOTOGRAFÍA</span>
@@ -227,19 +122,23 @@
                     </ul>
                 </section>
 
-                <section class="section">
+                <section class="section" style="margin-top: 40px;">
                     <h2>Contacto</h2>
                     <div class="contact-box">
-                        <p>TELÉFONO</p>
+                        <p style="font-size: 0.7rem; color: #555;">TELÉFONO</p>
                         <a href="tel:5611159643">(56) 11 15 96 43</a>
-                        <p>EMAIL</p>
+                        
+                        <p style="font-size: 0.7rem; color: #555;">EMAIL</p>
                         <a href="mailto:Zsaul182@hotmail.com">Zsaul182@hotmail.com</a>
-                        <p>LINKEDIN</p>
-                        <a href="https://www.linkedin.com/in/saul-zaragoza/">/saul-zaragoza</a>
+                        
+                        <p style="font-size: 0.7rem; color: #555;">LINKEDIN</p>
+                        <a href="https://www.linkedin.com/in/saul-zaragoza/" target="_blank">/saul-zaragoza</a>
                     </div>
                 </section>
             </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
